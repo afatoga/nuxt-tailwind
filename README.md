@@ -1,0 +1,1 @@
+NuxtJS + TailwindCSS + SSR (Jamstack)
