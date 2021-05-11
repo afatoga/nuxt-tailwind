@@ -24,6 +24,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "~plugins/directives.js"
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -37,12 +38,12 @@ export default {
   ],
 
   tailwindcss: {
-    jit: true,
     exposeConfig: true
   },
 
   colorMode: {
-    classSuffix: ""
+    classSuffix: "",
+    preference: "light"
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules

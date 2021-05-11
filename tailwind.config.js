@@ -5,6 +5,12 @@
  ** Default: https://github.com/tailwindcss/tailwindcss/blob/master/stubs/defaultConfig.stub.js
  */
 module.exports = {
+    mode: 'jit',
+       // These paths are just examples, customize them to match your project structure
+    purge: [
+      // './public/**/*.html',
+      './**/*.{js,jsx,ts,tsx,vue}',
+    ],
     darkMode: "class",
     variants: {
       backgroundColor: [

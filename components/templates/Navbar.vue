@@ -1,6 +1,8 @@
 <template>
   <nav
-    class="relative flex flex-wrap items-center justify-between px-2 py-3 dark:bg-gray-900 bg-green-500 mb-3"
+    class="flex-wrap items-center justify-between px-2 py-3 dark:bg-gray-900 bg-green-500 mb-3 fixed w-full"
+    v-click-outside="closeDropdownMenu"
+    v-bind:class="{ 'navbar--hidden': !showNavbar, flex: showNavbar}"
   >
     <div
       class="container px-4 mx-auto flex flex-wrap items-center justify-between"
@@ -9,20 +11,19 @@
         class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start"
       >
         <a
-          class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
-          href="#pablo"
+          class="font-bold text-lg leading-relaxed inline-block mr-4 pt-3 pb-2 whitespace-nowrap uppercase"
         >
-          emerald Color
+          LOGO
         </a>
         <button
-          class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+          class="cursor-pointer leading-none px-0 lg:px-4 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
           type="button"
-          v-on:click="toggleNavbar()"
+          v-on:click="showDropdown = !showDropdown"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
+            width="20"
+            height="20"
             fill="currentColor"
             class="bi bi-list"
             viewBox="0 0 16 16"
@@ -35,43 +36,26 @@
         </button>
       </div>
       <div
-        v-bind:class="{ hidden: !showMenu, flex: showMenu }"
-        class="lg:flex lg:flex-grow items-center"
+        v-bind:class="{ hidden: !showDropdown, flex: showDropdown }"
+        class="lg:flex lg:flex-grow items-center pb-2 lg:pb-0"
       >
-        <ul class="flex flex-col lg:flex-row list-none ml-auto">
-          <li class="nav-item">
-            <a
-              class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug"
-              href="#pablo"
+        <ul class="flex flex-col lg:flex-row list-none ml-auto px-4 px-md-0 text-sm">
+          <li class="nav-item" v-for="item in navItems" :key="item.path">
+            <NuxtLink
+              class="px-0 lg:px-4 pt-3 pb-2 flex items-center uppercase font-bold leading-snug"
+              :to="item.path"
+              >{{ item.label }}</NuxtLink
             >
-              <span class="ml-2">Share</span>
-            </a>
           </li>
-          <li class="nav-item">
-            <a
-              class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug"
-              href="#pablo"
-            >
-              <span class="ml-2">Tweet</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a
-              class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug"
-              href="#pablo"
-            >
-              <span class="ml-2">Pin</span>
-            </a>
-          </li>
-          <li>
+          <li class="flex items-center pt-2 lg:pt-0 px-0 lg:px-4" id="darkModeToggle">
             <div
               v-if="$colorMode.preference === 'light'"
               @click="$colorMode.preference = 'dark'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="28"
+                width="20"
+                height="20"
                 fill="currentColor"
                 class="bi bi-moon-stars-fill"
                 viewBox="0 0 16 16"
@@ -87,14 +71,14 @@
             <div v-else @click="$colorMode.preference = 'light'">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="28"
+                width="20"
+                height="20"
                 fill="currentColor"
-                class="bi bi-sun"
+                class="bi bi-sun-fill"
                 viewBox="0 0 16 16"
               >
                 <path
-                  d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+                  d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
                 />
               </svg>
             </div>
@@ -107,22 +91,77 @@
 
 <script>
 export default {
-  name: "emerald-navbar",
+  name: "Navbar",
   data() {
     return {
-      showMenu: false,
+      showNavbar: true,
+      lastScrollPosition: 0,
+      showDropdown: false,
+      navItems: [
+        {
+          path: "/",
+          label: "Hledám učitele",
+        },
+        {
+          path: "/pro-ucitele",
+          label: "Chci vyučovat",
+        },
+      ],
     };
   },
   methods: {
-    toggleNavbar: function () {
-      this.showMenu = !this.showMenu;
+    // toggleDropdown: function () {
+    //   this.showDropdown = !this.showDropdown
+    // },
+    closeDropdownMenu: function () {
+      if (!this.showDropdown) return
+      this.showDropdown = false
     },
+    onScroll () {
+    this.closeDropdownMenu()
+    // Get the current scroll position
+    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
+    // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
+    if (currentScrollPosition < 0) {
+      return
+    }
+    // Here we determine whether we need to show or hide the navbar
+    this.showNavbar = currentScrollPosition < this.lastScrollPosition
+    // Set the current scroll position as the last scroll position
+    this.lastScrollPosition = currentScrollPosition
+  }
   },
+  mounted () {
+    window.addEventListener('scroll', this.onScroll)
+  },
+  beforeDestroy () {
+    window.removeEventListener('scroll', this.onScroll)
+  }
 };
 </script>
 
-<style lang="postcss">
+<style scope lang="postcss">
 nav ul > li {
-  @apply text-gray-700 dark:text-gray-400 dark:hover:opacity-70 hover:text-gray-300;
+  @apply text-gray-800 dark:text-gray-400;
+  /* dark:hover:opacity-70; */
+}
+
+nav ul > li > a:hover {
+  /* @apply duration-500; */
+  text-decoration: underline;
+  /* text-shadow: 0rem .2rem 1rem rgb(212, 212, 212); */
+}
+
+li#darkModeToggle>div:hover {
+  @apply text-gray-200 hover:text-yellow-400 dark:hover:text-gray-100
+}
+/* hide on scroll */
+nav {
+ transform: translate3d(0, 0, 0);
+  transition: 0.1s all ease-out;
+}
+
+nav.navbar--hidden {
+  transform: translate3d(0, -100%, 0);
 }
 </style>
