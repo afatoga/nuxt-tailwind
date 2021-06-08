@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex-wrap items-center justify-between px-2 py-3 dark:bg-gray-900 bg-green-500 mb-3 fixed w-full"
+    class="flex-wrap items-center justify-between px-2 py-3 dark:bg-black bg-gray-300 fixed w-full hover:bg-blue-400"
     v-click-outside="closeDropdownMenu"
     v-bind:class="{ 'navbar--hidden': !showNavbar, flex: showNavbar}"
   >
@@ -11,9 +11,9 @@
         class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start"
       >
         <a
-          class="font-bold text-lg leading-relaxed inline-block mr-4 pt-3 pb-2 whitespace-nowrap uppercase"
+          class="font-bold text-lg leading-relaxed inline-block mr-4 pt-3 pb-2 whitespace-nowrap uppercase tracking-wide"
         >
-          LOGO
+          Vladimír Mryščuk
         </a>
         <button
           class="cursor-pointer leading-none px-0 lg:px-4 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -22,8 +22,8 @@
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="28"
+            height="28"
             fill="currentColor"
             class="bi bi-list"
             viewBox="0 0 16 16"
@@ -39,10 +39,10 @@
         v-bind:class="{ hidden: !showDropdown, flex: showDropdown }"
         class="lg:flex lg:flex-grow items-center pb-2 lg:pb-0"
       >
-        <ul class="flex flex-col lg:flex-row list-none ml-auto px-4 px-md-0 text-sm">
+        <ul class="flex flex-col lg:flex-row list-none ml-auto px-4 px-md-0">
           <li class="nav-item" v-for="item in navItems" :key="item.path">
             <NuxtLink
-              class="px-0 lg:px-4 pt-3 pb-2 flex items-center uppercase font-bold leading-snug"
+              class="px-0 lg:px-4 pt-3 pb-2 flex items-center uppercase font-bold leading-snug lg:tracking-wide"
               :to="item.path"
               >{{ item.label }}</NuxtLink
             >
@@ -99,12 +99,16 @@ export default {
       showDropdown: false,
       navItems: [
         {
-          path: "/",
-          label: "Hledám učitele",
+          path: "#weby",
+          label: "Weby",
         },
         {
-          path: "/pro-ucitele",
-          label: "Chci vyučovat",
+          path: "#aplikace",
+          label: "Aplikace",
+        },
+        {
+          path: "#portfolio",
+          label: "Portfolio",
         },
       ],
     };
@@ -147,8 +151,8 @@ nav ul > li {
 }
 
 nav ul > li > a:hover {
-  /* @apply duration-500; */
-  text-decoration: underline;
+  @apply dark:text-gray-100 dark:opacity-100 text-black underline dark:no-underline;
+  /* text-decoration: underline; */
   /* text-shadow: 0rem .2rem 1rem rgb(212, 212, 212); */
 }
 
@@ -157,11 +161,13 @@ li#darkModeToggle>div:hover {
 }
 /* hide on scroll */
 nav {
- transform: translate3d(0, 0, 0);
-  transition: 0.1s all ease-out;
+  transform: translate3d(0, 0, 0);
+  transition: 0.3s all ease-out;
+  font-family: 'Inter', sans-serif;
 }
 
 nav.navbar--hidden {
   transform: translate3d(0, -100%, 0);
 }
+
 </style>

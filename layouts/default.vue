@@ -13,17 +13,22 @@ import Navbar from '~/components/templates/Navbar.vue';
 export default {
   components: { Navbar },
   head: {
-    title: "Nuxt.js with TailwindCSS",
+    htmlAttrs: {
+      lang: 'cs'
+    },
+    title: "Vladimír Mryščuk - osobní web",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
         name: "description",
-        content: "Nuxt.js with TailwindCSS example",
+        content: "Návrh a vývoj webových stránek, eshopů a informačních systémů. Responzivní weby a aplikace pro mobilní zařízení.",
       },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [{ rel: "preconnect", href: "https://fonts.gstatic.com" }],
+    link: [{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter&display=swap" }],
+    // link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
 };
 </script>
