@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex-wrap items-center justify-between px-2 py-3 dark:bg-black bg-gray-300 fixed w-full hover:bg-blue-400"
+    class="flex-wrap items-center justify-between px-2 py-3 dark:bg-black bg-blue-400 fixed w-full"
     v-click-outside="closeDropdownMenu"
     v-bind:class="{ 'navbar--hidden': !showNavbar, flex: showNavbar }"
   >
@@ -23,7 +23,7 @@
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
-            viewBox="0 0 28 28"
+            :viewBox="!showDropdown ? '0 0 32 32' : '0 0 28 28'"
             :width="!showDropdown ? '28' : '32'"
             :height="!showDropdown ? '28' : '32'"
           >
@@ -40,30 +40,30 @@
       </div>
       <div
         v-bind:class="{ hidden: !showDropdown }"
-        class="lg:flex lg:flex-grow items-center pb-2 lg:pb-0"
+        class="lg:flex lg:flex-grow items-center pb-2 lg:pb-0 w-full lg:w-auto"
       >
-        <ul class="flex flex-col lg:flex-row list-none ml-auto px-4 px-md-0">
-          <li class="nav-item" v-for="item in navItems" :key="item.path">
+        <ul class="flex flex-col lg:flex-row list-none ml-auto px-2 px-md-0">
+          <li v-for="item in navItems" :key="item.path">
             <NuxtLink
-              class="px-0 lg:px-4 pt-3 pb-2 flex items-center uppercase font-bold leading-snug lg:tracking-wide"
+              class="pt-3 pb-2 flex items-center uppercase font-bold leading-snug lg:tracking-wide rounded px-2 duration-300"
               :to="item.path"
               >{{ item.label }}</NuxtLink
             >
           </li>
           <li
-            class="flex items-center pt-2 lg:pt-0 px-0 lg:px-4"
+            class="flex items-center pt-2 lg:pt-0 px-2 lg:px-4 italic"
             id="darkModeToggle"
           >
             <div
               v-if="$colorMode.preference === 'light'"
               @click="$colorMode.preference = 'dark'"
+              class="inline-flex cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 fill="currentColor"
-                class="bi bi-moon-stars-fill"
                 viewBox="0 0 16 16"
               >
                 <path
@@ -73,20 +73,25 @@
                   d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"
                 />
               </svg>
+              <p class="ml-2 lg:hidden">noční režim
+              </p>
             </div>
-            <div v-else @click="$colorMode.preference = 'light'">
+            <div v-else 
+            @click="$colorMode.preference = 'light'"
+            class="inline-flex cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
                 height="20"
                 fill="currentColor"
-                class="bi bi-sun-fill"
                 viewBox="0 0 16 16"
               >
                 <path
                   d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
                 />
               </svg>
+              <p class="ml-2 lg:hidden">denní režim
+              </p>
             </div>
           </li>
         </ul>
@@ -158,7 +163,7 @@ nav ul > li {
 }
 
 nav ul > li > a:hover {
-  @apply dark:text-gray-100 dark:opacity-100 text-black underline dark:no-underline;
+  @apply text-black bg-gray-200 dark:bg-gray-600;
   /* text-decoration: underline; */
   /* text-shadow: 0rem .2rem 1rem rgb(212, 212, 212); */
 }
