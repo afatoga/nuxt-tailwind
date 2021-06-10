@@ -2,7 +2,7 @@
   <nav
     class="flex-wrap items-center justify-between px-2 py-3 dark:bg-black bg-gray-300 fixed w-full hover:bg-blue-400"
     v-click-outside="closeDropdownMenu"
-    v-bind:class="{ 'navbar--hidden': !showNavbar, flex: showNavbar}"
+    v-bind:class="{ 'navbar--hidden': !showNavbar, flex: showNavbar }"
   >
     <div
       class="container px-4 mx-auto flex flex-wrap items-center justify-between"
@@ -22,21 +22,24 @@
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
             fill="currentColor"
-            class="bi bi-list"
-            viewBox="0 0 16 16"
+            viewBox="0 0 28 28"
+            :width="!showDropdown ? '28' : '32'"
+            :height="!showDropdown ? '28' : '32'"
           >
             <path
-              fill-rule="evenodd"
-              d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+              v-if="!showDropdown"
+              d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"
+            />
+            <path
+              v-if="showDropdown"
+              d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"
             />
           </svg>
         </button>
       </div>
       <div
-        v-bind:class="{ hidden: !showDropdown, flex: showDropdown }"
+        v-bind:class="{ hidden: !showDropdown }"
         class="lg:flex lg:flex-grow items-center pb-2 lg:pb-0"
       >
         <ul class="flex flex-col lg:flex-row list-none ml-auto px-4 px-md-0">
@@ -47,7 +50,10 @@
               >{{ item.label }}</NuxtLink
             >
           </li>
-          <li class="flex items-center pt-2 lg:pt-0 px-0 lg:px-4" id="darkModeToggle">
+          <li
+            class="flex items-center pt-2 lg:pt-0 px-0 lg:px-4"
+            id="darkModeToggle"
+          >
             <div
               v-if="$colorMode.preference === 'light'"
               @click="$colorMode.preference = 'dark'"
@@ -100,46 +106,47 @@ export default {
       navItems: [
         {
           path: "#weby",
-          label: "Weby",
+          label: "Weby"
         },
         {
           path: "#aplikace",
-          label: "Aplikace",
+          label: "Aplikace"
         },
         {
           path: "#portfolio",
-          label: "Portfolio",
-        },
-      ],
+          label: "Portfolio"
+        }
+      ]
     };
   },
   methods: {
     // toggleDropdown: function () {
     //   this.showDropdown = !this.showDropdown
     // },
-    closeDropdownMenu: function () {
-      if (!this.showDropdown) return
-      this.showDropdown = false
+    closeDropdownMenu: function() {
+      if (!this.showDropdown) return;
+      this.showDropdown = false;
     },
-    onScroll () {
-    this.closeDropdownMenu()
-    // Get the current scroll position
-    const currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop
-    // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
-    if (currentScrollPosition < 0) {
-      return
+    onScroll() {
+      this.closeDropdownMenu();
+      // Get the current scroll position
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+      // Because of momentum scrolling on mobiles, we shouldn't continue if it is less than zero
+      if (currentScrollPosition < 0) {
+        return;
+      }
+      // Here we determine whether we need to show or hide the navbar
+      this.showNavbar = currentScrollPosition < this.lastScrollPosition;
+      // Set the current scroll position as the last scroll position
+      this.lastScrollPosition = currentScrollPosition;
     }
-    // Here we determine whether we need to show or hide the navbar
-    this.showNavbar = currentScrollPosition < this.lastScrollPosition
-    // Set the current scroll position as the last scroll position
-    this.lastScrollPosition = currentScrollPosition
-  }
   },
-  mounted () {
-    window.addEventListener('scroll', this.onScroll)
+  mounted() {
+    window.addEventListener("scroll", this.onScroll);
   },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.onScroll)
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.onScroll);
   }
 };
 </script>
@@ -156,18 +163,17 @@ nav ul > li > a:hover {
   /* text-shadow: 0rem .2rem 1rem rgb(212, 212, 212); */
 }
 
-li#darkModeToggle>div:hover {
-  @apply text-gray-200 hover:text-yellow-400 dark:hover:text-gray-100
+li#darkModeToggle > div:hover {
+  @apply text-gray-200 hover:text-yellow-400 dark:hover:text-gray-100;
 }
 /* hide on scroll */
 nav {
   transform: translate3d(0, 0, 0);
   transition: 0.3s all ease-out;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 nav.navbar--hidden {
   transform: translate3d(0, -100%, 0);
 }
-
 </style>
