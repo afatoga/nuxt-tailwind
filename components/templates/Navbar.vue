@@ -11,7 +11,7 @@
         class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start"
       >
         <a
-          class="font-bold text-lg leading-relaxed inline-block mr-4 pt-3 pb-2 whitespace-nowrap uppercase tracking-wide"
+          class="text-lg leading-relaxed inline-block mr-4 pt-3 pb-2 whitespace-nowrap uppercase tracking-wide"
         >
           Vladimír Mryščuk
         </a>
@@ -45,7 +45,7 @@
         <ul class="flex flex-col lg:flex-row list-none ml-auto px-2 px-md-0">
           <li v-for="item in navItems" :key="item.path">
             <NuxtLink
-              class="pt-3 pb-2 flex items-center uppercase font-bold leading-snug lg:tracking-wide rounded px-2 duration-300"
+              class="pt-3 pb-2 flex items-center uppercase leading-snug lg:tracking-wide rounded px-2 duration-300"
               :to="item.path"
               >{{ item.label }}</NuxtLink
             >
@@ -176,6 +176,7 @@ nav {
   transform: translate3d(0, 0, 0);
   transition: 0.3s all ease-out;
   font-family: "Inter", sans-serif;
+  font-weight: 500;
 }
 
 nav.navbar--hidden {

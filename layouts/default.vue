@@ -27,7 +27,7 @@ export default {
       },
     ],
     link: [{ rel: "preconnect", href: "https://fonts.gstatic.com" }],
-    link: [{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter&display=swap" }],
+    link: [{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" }],
     link: [{ rel: "stylesheet", href: "https://use.fontawesome.com/releases/v5.3.1/css/all.css" }],
     // link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },
