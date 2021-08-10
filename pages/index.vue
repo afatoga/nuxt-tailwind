@@ -9,20 +9,18 @@
           Web je tváří vašeho projektu
         </h1>
         <div class="text-xl text-gray-700 text-left dark:text-gray-400">
-          Když je pěkný a rychlý, tak prodává. LEOWEB&nbsp;nabízí řešení
-          na&nbsp;klíč. <p><strong>Společně</strong> můžeme vytvořit unikát
+          <strong>Společně</strong> vytvoříme unikát
           nebo&nbsp;superzbraň.
-          </p>
         </div>
-        <p class="mt-8 mb-2 text-lg text-center md:text-left text-gray-500">
-          Pracovní nástroje
-        </p>
+        <p class="mt-8 mb-2 text-lg text-center md:text-left text-gray-500">Pracovní nástroje</p>
         <div
           class="
             flex flex-wrap
             items-center
             justify-center
             md:justify-start
+            space-x-2
+            md:space-x-4
           "
         >
           <i
@@ -30,9 +28,9 @@
               fab
               fa-wordpress-simple
               text-blue-600 text-4xl
-              md:text-6xl
+              md:text-5xl
               has-tooltip
-              w-1/5
+              text-center
             "
             ><span
               class="
@@ -40,7 +38,7 @@
                 text-black
                 bg-gray-200
                 -mt-6
-                -ml-20
+                -ml-14
                 rounded
                 text-lg
                 font-normal
@@ -53,9 +51,9 @@
               fas
               fa-shopping-cart
               text-red-400 text-4xl
-              md:text-5xl
+              md:text-4xl
               has-tooltip
-              w-1/5
+              text-center
             "
             ><span
               class="
@@ -63,7 +61,7 @@
                 text-black
                 bg-gray-200
                 -mt-6
-                -ml-12
+                -ml-14
                 rounded
                 text-lg
                 font-normal
@@ -75,9 +73,9 @@
               fas
               fa-database
               text-green-600 text-4xl
-              md:text-5xl
+              md:text-4xl
               has-tooltip
-              w-1/5
+              text-center
             "
             ><span
               class="
@@ -90,17 +88,18 @@
                 text-lg
                 font-normal
               "
-              >Databáze</span
+              >Databáze a API</span
             ></i
           ><i
-            class="fab fa-react text-blue-300 text-4xl md:text-6xl has-tooltip w-1/5"
+            class="fab fa-react text-blue-400 dark:text-blue-300 text-4xl md:text-5xl has-tooltip
+              text-center"
             ><span
               class="
                 tooltip
                 text-black
                 bg-gray-200
                 -mt-6
-                -ml-16
+                -ml-10
                 rounded
                 text-lg
                 font-normal
@@ -108,7 +107,8 @@
               >React</span
             ></i
           ><i
-            class="fab text-yellow-500 fa-aws text-4xl md:text-6xl has-tooltip w-1/5"
+            class="fab text-yellow-500 fa-aws text-4xl md:text-5xl has-tooltip
+              text-center"
             ><span
               class="
                 tooltip
