@@ -54,9 +54,10 @@
         <ul class="flex flex-col lg:flex-row list-none mr-3 lg:mx-0 mt-3 lg:mt-0 lg:ml-2">
            <li>
              <div class="relative inline-block w-full text-gray-700">
-  <select class="w-full h-8 pl-3 pr-6 text-base bg-gray-200 dark:bg-gray-300 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input">
+  <select class="w-full h-8 pl-3 pr-6 text-base bg-gray-200 dark:bg-gray-300 border rounded-lg appearance-none focus:shadow-outline" placeholder="Regular input"
+   v-model="$i18n.locale">
     <option v-for="locale in $i18n.locales"
-  :key="locale.code"
+  :key="locale.code" :value="locale.code"
   ><nuxt-link :to="switchLocalePath(locale.code)"
   >{{ locale.name }}</nuxt-link>
   </option>
@@ -97,7 +98,7 @@
               <p class="ml-2 lg:hidden">noční režim
               </p>
             </div>
-            <div v-else 
+            <div v-else
             @click="$colorMode.preference = 'light'"
             class="inline-flex cursor-pointer">
               <svg
@@ -175,7 +176,7 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.onScroll);
-    console.log(this.showNavbar);
+    //console.log(this.showNavbar);
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.onScroll);
