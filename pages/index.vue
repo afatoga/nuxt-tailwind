@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <div>
     <section
       id="uvod"
-      class="my-12 md:mt-16 lg:mt-12 md:flex flex-row items-center justify-between"
+      class="my-12 lg:mt-16 lg:mt-12 md:flex flex-row items-center justify-between"
     >
       <div class="px-2 md:px-0">
         <h1 class="py-4 text-3xl font-bold text-blue-600 text-left">
@@ -152,7 +152,71 @@
         />
       </picture>
     </section>
-  </section>
+       <section id="weby-a-aplikace" class="mb-16">
+          <h2 class="py-4 text-3xl font-medium text-blue-600 text-left">
+            Weby a aplikace
+          </h2>
+          <div class="flex flex-wrap items-start">
+            <div class="w-full text-xl text-gray-700">
+              <ul class="af_list list-inside pt-2">
+                <li class="mb-2">
+                  Vytvářím weby a aplikace od&nbsp;návrhu po&nbsp;nasazení.
+                </li>
+                <li class="my-2">
+                  Věnuji velkou pozornost uživatelskému zážitku.
+                </li>
+                <li class="my-2">
+                  Využívám moderních přístupů, díky čemuž je výsledek svižný
+                  a&nbsp;zabezpečný.
+                </li>
+                <li class="my-2">
+                  Buduji projekty, které lze následně rozšiřovat.
+                </li>
+                <li class="my-2">Během vývoje informuji o&nbsp;průběhu prací.</li>
+              </ul>
+            </div>
+            <!-- <div class="w-full lg:w-1/3 mt-4 md:mt">
+              <a href="/portfolio.html"
+                ><p
+                  class="bg-gray-700 hover:bg-orange-400 text-white hover:text-black p-4 cursor-pointer text-center text-xl duration-700 shadow-md rounded"
+                >
+                  Zobrazit dosavadní práce
+                </p></a
+              >
+              <div
+                class="mt-8 flex flex-row space-x-8 items-center justify-center"
+              >
+                <i
+                  class="fas fa-code text-gray-700 text-3xl md:text-5xl tooltip"
+                  ><span
+                    class="tooltip-text bg-gray-200 -mt-6 -ml-16 rounded text-lg font-normal"
+                    >kódování</span
+                  ></i
+                >
+                <i
+                  class="fas fa-mobile-alt text-gray-700 text-4xl md:text-5xl tooltip"
+                  ><span
+                    class="tooltip-text bg-gray-200 -mt-6 -ml-16 rounded text-lg font-normal"
+                    >responzivita</span
+                  ></i
+                ><i
+                  class="fas fa-sitemap text-gray-700 text-4xl md:text-5xl tooltip"
+                  ><span
+                    class="tooltip-text bg-gray-200 -mt-6 -ml-24 rounded text-lg font-normal"
+                    >architekura, infrastuktura</span
+                  ></i
+                ><i
+                  class="fas fa-magic text-gray-700 text-4xl md:text-5xl tooltip"
+                  ><span
+                    class="tooltip-text bg-gray-200 -mt-6 -ml-12 rounded text-lg font-normal"
+                    >efekty</span
+                  ></i
+                >
+              </div>
+            </div> -->
+          </div>
+        </section>
+        </div>
 </template>
 
 <script>
@@ -185,4 +249,28 @@ export default {
     font-family: "Inter", sans-serif;
     padding: 0 .18rem;
   }
+
+   .af_bgTransparent {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .af_menuButton:focus {
+    outline: none;
+  }
+
+  ul.af_list>li {
+    padding-bottom: 0.8rem;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhcyIgZGF0YS1pY29uPSJjaGV2cm9uLXJpZ2h0IiBjbGFzcz0ic3ZnLWlubGluZS0tZmEgZmEtY2hldnJvbi1yaWdodCBmYS13LTEwIiByb2xlPSJpbWciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDMyMCA1MTIiIHdpZHRoPSIxMiI+PHBhdGggZmlsbD0iIzM4YTE2OSIgZD0iTTI4NS40NzYgMjcyLjk3MUw5MS4xMzIgNDY3LjMxNGMtOS4zNzMgOS4zNzMtMjQuNTY5IDkuMzczLTMzLjk0MSAwbC0yMi42NjctMjIuNjY3Yy05LjM1Ny05LjM1Ny05LjM3NS0yNC41MjItLjA0LTMzLjkwMUwxODguNTA1IDI1NiAzNC40ODQgMTAxLjI1NWMtOS4zMzUtOS4zNzktOS4zMTctMjQuNTQ0LjA0LTMzLjkwMWwyMi42NjctMjIuNjY3YzkuMzczLTkuMzczIDI0LjU2OS05LjM3MyAzMy45NDEgMEwyODUuNDc1IDIzOS4wM2M5LjM3MyA5LjM3MiA5LjM3MyAyNC41NjguMDAxIDMzLjk0MXoiPjwvcGF0aD48L3N2Zz4=');
+    background-repeat: no-repeat;
+    line-height: 1.37rem;
+    padding-left: 1.4rem;
+  }
+
+  p.af_siteLink {
+    padding-bottom: 0.8rem;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhcyIgZGF0YS1pY29uPSJjaGV2cm9uLXJpZ2h0IiBjbGFzcz0ic3ZnLWlubGluZS0tZmEgZmEtY2hldnJvbi1yaWdodCBmYS13LTEwIiByb2xlPSJpbWciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDMyMCA1MTIiIHdpZHRoPSIxMiI+PHBhdGggZmlsbD0iIzM4YTE2OSIgZD0iTTI4NS40NzYgMjcyLjk3MUw5MS4xMzIgNDY3LjMxNGMtOS4zNzMgOS4zNzMtMjQuNTY5IDkuMzczLTMzLjk0MSAwbC0yMi42NjctMjIuNjY3Yy05LjM1Ny05LjM1Ny05LjM3NS0yNC41MjItLjA0LTMzLjkwMUwxODguNTA1IDI1NiAzNC40ODQgMTAxLjI1NWMtOS4zMzUtOS4zNzktOS4zMTctMjQuNTQ0LjA0LTMzLjkwMWwyMi42NjctMjIuNjY3YzkuMzczLTkuMzczIDI0LjU2OS05LjM3MyAzMy45NDEgMEwyODUuNDc1IDIzOS4wM2M5LjM3MyA5LjM3MiA5LjM3MyAyNC41NjguMDAxIDMzLjk0MXoiPjwvcGF0aD48L3N2Zz4=');
+    background-repeat: no-repeat;
+    line-height: 1.37rem;
+    padding-left: 1.4rem;
+}
 </style>
