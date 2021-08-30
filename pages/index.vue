@@ -2,15 +2,13 @@
   <div>
     <section
       id="uvod"
-      class="my-12 lg:mt-16 lg:mt-12 md:flex flex-row items-center justify-between"
+      class="my-12 lg:mt-0 md:flex flex-row items-center justify-between min-h-screen"
     >
       <div class="px-2 md:px-0">
-        <h1 class="py-4 text-3xl font-bold text-blue-600 text-left">
-          Web je tváří vašeho projektu
-        </h1>
-        <div class="text-xl text-gray-700 text-left dark:text-gray-400">
-          <strong>Společně</strong> vytvoříme unikát
-          nebo&nbsp;superzbraň.
+        <h1 class="py-4 font-bold text-vladam-blue text-left af_motto" v-html="$t('site_motto')" />
+
+        <div class="mt-4 text-3xl text-gray-700 text-left dark:text-gray-400">
+          {{$t('site_motto2')}}
         </div>
         <p class="mt-8 mb-2 text-lg text-center md:text-left text-gray-500">Pracovní nástroje</p>
         <div
@@ -152,7 +150,7 @@
         />
       </picture>
     </section>
-       <section id="weby-a-aplikace" class="mb-16">
+       <section id="weby-a-aplikace" class="mb-16 min-h-screen">
           <h2 class="py-4 text-3xl font-medium text-blue-600 text-left">
             Weby a aplikace
           </h2>
@@ -272,5 +270,16 @@ export default {
     background-repeat: no-repeat;
     line-height: 1.37rem;
     padding-left: 1.4rem;
+}
+
+.af_motto {
+  font-size:3rem;  
+}
+
+@media only screen and (min-width: 1024px) {
+  .af_motto {
+  font-size:7rem;
+  line-height: 7.2rem;  
+  }
 }
 </style>

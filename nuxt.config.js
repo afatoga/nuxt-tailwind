@@ -53,6 +53,7 @@ export default {
     ],
   
     i18n: {
+      baseUrl: 'http://localhost:3000',
       locales: [
        {
           code: 'en',

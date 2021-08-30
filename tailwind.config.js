@@ -25,6 +25,14 @@ module.exports = {
     //   extend: {
     //    opacity: ["dark-hover"],
     //   }
+    },
+    theme:{
+      extend: {
+        colors: {
+          'vladam-blue': '#2b6cb0',
+          'vladam-blue-lighter': '#3491dc',
+        }
+      }
     }
   };
   
