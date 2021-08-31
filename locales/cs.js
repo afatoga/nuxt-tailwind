@@ -6,5 +6,5 @@ export default {
     "applications":"aplikace",
     "portfolio":"portfolio",
     "site_motto": "Web je tváří<br>Vašeho projektu",
-    "site_motto2": "Navrhnu a <naprogramuji /> webový zážitek.",
+    "site_motto2": "Navrhnu a naprogramuji webový zážitek.",
 }

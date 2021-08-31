@@ -115,7 +115,7 @@
                 h-8
                 duration-300
               "
-              :to="'/#'+$t(item.path)"
+              :to="(($i18n.locale === 'en') ? '/en#': '/#') + $t(item.path)"
               >{{ $t(item.path) }}</NuxtLink
             >
           </li>
