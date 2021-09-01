@@ -5,4 +5,5 @@ export default {
     "webpages":"webpages",
     "applications":"apps",
     "portfolio":"portfolio",
+    "contact":"contact"
 }

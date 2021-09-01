@@ -1,10 +1,7 @@
 <template>
-  <div class="h-screen">
-   
   <div class="dark:bg-gray-800 dark:text-gray-200 h-100">
      <Navbar />
     <nuxt class="mx-auto p-4 container pt-8" />
-  </div>
   </div>
 </template>
 

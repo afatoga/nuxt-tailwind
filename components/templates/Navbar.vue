@@ -31,7 +31,7 @@
           lg:justify-start
         "
       >
-        <a
+        <a href="/"
           class="
             text-lg
             leading-relaxed
@@ -43,6 +43,7 @@
             uppercase
             tracking-wide
             cursor-default
+            font-bold
           "
         >
           {{ $t("site_name") }}
@@ -114,6 +115,7 @@
                 rounded-lg
                 h-8
                 duration-300
+                font-bold
               "
               :to="(($i18n.locale === 'en') ? '/en#': '/#') + $t(item.path)"
               >{{ $t(item.path) }}</NuxtLink
@@ -248,6 +250,9 @@ export default {
         },
         {
           path: "portfolio"
+        },
+        {
+          path: "contact"
         },
       ],
     };
