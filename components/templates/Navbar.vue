@@ -7,7 +7,9 @@
       px-2
       py-3
       dark:bg-black
-      bg-vladam-blue-lighter
+      bg-white
+      border-b-2
+      dark:border-none
       fixed
       w-full
     "
@@ -41,9 +43,8 @@
             pb-2
             whitespace-nowrap
             uppercase
-            tracking-wide
+            tracking-wider
             cursor-default
-            font-bold
           "
         >
           {{ $t("site_name") }}
@@ -115,7 +116,6 @@
                 rounded-lg
                 h-8
                 duration-300
-                font-bold
               "
               :to="(($i18n.locale === 'en') ? '/en#': '/#') + $t(item.path)"
               >{{ $t(item.path) }}</NuxtLink
@@ -312,7 +312,7 @@ li#darkModeToggle > div:hover {
 nav {
   transform: translate3d(0, 0, 0);
   transition: 0.3s all ease-out;
-  font-family: "Inter", sans-serif;
+  font-family: "Inconsolata", monospace;
   font-weight: 500;
 }
 

@@ -8,4 +8,6 @@ export default {
     "contact":"kontakt",
     "site_motto": "Web je tváří<br>Vašeho projektu",
     "site_motto2": "Navrhnu a naprogramuji webový zážitek.",
+    "my_work":"Služby",
+
 }
