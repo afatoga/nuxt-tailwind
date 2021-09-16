@@ -117,8 +117,10 @@
                 h-8
                 duration-300
               "
-              :to="(($i18n.locale === 'en') ? '/en#': '/#') + $t(item.path)"
-              >{{ $t(item.path) }}</NuxtLink
+              :to="{ path: ($i18n.locale === 'en') ? '/en' : '/', 
+              hash: $t(item.path)
+              }"
+              >{{(item.path === "services") ? $t('Services') : $t(item.path) }}</NuxtLink
             >
           </li>
         </ul>
@@ -243,10 +245,7 @@ export default {
       showDropdown: false,
       navItems: [
         {
-          path: "webpages"
-        },
-        {
-          path: "applications"
+          path: "services"
         },
         {
           path: "portfolio"

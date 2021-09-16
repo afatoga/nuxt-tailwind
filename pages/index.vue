@@ -70,11 +70,11 @@
         "
         @click="scrollToNextSection(1)"
       >
-        <span class="hover:underline">{{ $t("services") }}</span
+        <span class="hover:underline">{{ $t("Services") }}</span
         >&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i>
       </p>
     </section>
-    <section id="services" class="mt-4 md:mt-12 2xl:mt-0 2xl:pt-24">
+    <section :id="$t('services')" class="mt-4 md:mt-12 2xl:mt-0 2xl:pt-24">
       <div class="flex-row md:flex items-center">
         <!-- <picture
           class="md:order-last block md:ml-12 md:mr-0 lg:mx-1 p-8 md:p-0"
@@ -284,7 +284,7 @@
                     text-lg
                     font-normal
                   "
-                  >NextJS framework pro tvorbu webových aplikací</span
+                  >Next - framework pro tvorbu webových aplikací</span
                 >
               </div>
               <div class="mx-auto my-4 has-tooltip">
@@ -300,12 +300,12 @@
                     bg-gray-200
                     px-2
                     mt-4
-                    -ml-8
+                    -ml-16
                     rounded
                     text-lg
                     font-normal
                   "
-                  >Amazon Web Services</span
+                  >Amazon Web Services - hostování aplikací v cloudu</span
                 >
               </div>
               <!-- <i
@@ -424,7 +424,7 @@
                 ></i
               > -->
             </div>
-            <p class="mt-2 text-lg text-center text-gray-500 w-auto font-bold">
+            <p class="mt-2 text-lg text-center text-gray-500 dark:text-gray-700 w-auto font-bold">
               {{ $t("work_tools") }}
             </p>
           </div>
@@ -509,7 +509,7 @@ export default {
 }
 
 i > span {
-  font-family: "Inter", sans-serif;
+  /* font-family: "Inter", sans-serif; */
   padding: 0 0.18rem;
 }
 
@@ -558,4 +558,8 @@ p.af_siteLink {
     line-height: 7.2rem;
   }
 } */
+
+section {
+  font-family: "Inconsolata", monospace;
+}
 </style>

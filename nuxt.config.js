@@ -1,6 +1,9 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  // head: function () {
+  //   return this.$nuxtI18nHead({ addSeoAttributes: true })
+  // },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   // head: {
@@ -43,7 +46,7 @@ export default {
 
   colorMode: {
     classSuffix: "",
-    preference: "light"
+    preference: "system"
   },
 
   // Modules: https://go.nuxtjs.dev/config-modules
