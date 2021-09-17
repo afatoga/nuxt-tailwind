@@ -36,7 +36,7 @@
 
           <div class="mt-10 hidden md:block">
             <a
-              :href="'#'+$t('contact')"
+              :href="'#' + $t('contact')"
               class="af_button inline-flex items-center justify-center px-4 py-2 text-lg font-medium leading-6 whitespace-no-wrap bg-transparent border border-vladam-blue rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               data-rounded="rounded-md"
               data-primary="blue-600"
@@ -155,25 +155,100 @@
         </div>
       </div>
     </section>
-    <section :id="$t('webpages')" class="mt-12 lg:mt-32 xl:mt-48 2xl:h-screen">
-<div class="flex-row md:flex items-center">
-        <div class="md:w-1/2">
+    <section :id="$t('webpages')" class="mt-12 lg:mt-32 xl:mt-48">
+      <div class="flex-row md:flex items-center">
+        <div class="w-full pb-8">
           <h2 class="py-4 text-3xl font-medium text-vladam-blue text-left">
             {{ $t("portfolio") }}
           </h2>
-          <div class="flex flex-wrap items-start">
-            <div class="w-full text-xl">
-              <ul class="af_list list-inside pt-2">
-                <li class="mb-2" v-html="$t('I_produce_websites')" />
-                <li class="my-2" v-html="$t('I_care_a_lot_about_UX')" />
-                <li class="my-2" v-html="$t('I_follow_modern_methods')" />
-                <li class="my-2" v-html="$t('I_build_extendable_projects')" />
-                <li class="my-2" v-html="$t('I_notify_about_the_progress')" />
-              </ul>
+          <no-ssr>
+            <div class="relative">
+              <div
+                class="absolute left-0 -ml-10 md:mt-20 xl:mt-32 text-5xl cursor-pointer select-none"
+                @click="$refs.siema.prev()"
+              >
+                &#10096;
+              </div>
+              <div
+                class="absolute right-0 -mr-10 md:mt-20 xl:mt-32 text-5xl cursor-pointer select-none"
+                @click="$refs.siema.next()"
+              >
+                &#10097;
+              </div>
+              <siema
+                ref="siema"
+                class="siema select-none"
+                :options="options"
+                auto-play
+              >
+                <div class="px-1">
+                  <img
+                    class="mx-auto pb-4"
+                    src="~/assets/img/lifesupport.png"
+                    loading="lazy"
+                    alt="Lifesupport.cz"
+                  />
+                  <p
+                    class="px-2 py-2 bg-gray-100 dark:bg-gray-400 dark:text-gray-700 p-2 rounded-lg"
+                  >
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s.
+                  </p>
+                </div>
+                <div class="px-1">
+                  <img
+                    class="mx-auto pb-4"
+                    src="~/assets/img/vize2030.svg"
+                    width="266"
+                    loading="lazy"
+                    alt="Vize2030"
+                  />
+                  <p
+                    class="px-2 py-2 bg-gray-100 dark:bg-gray-400 dark:text-gray-700 p-2 rounded-lg"
+                  >
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s.
+                  </p>
+                </div>
+                <div class="px-1">
+                  <img
+                    class="mx-auto pb-4"
+                    src="~/assets/img/shishaexpress.png"
+                    width="148"
+                    loading="lazy"
+                    alt="Shishaexpress"
+                  />
+                  <p
+                    class="px-2 py-2 bg-gray-100 dark:bg-gray-400 dark:text-gray-700 p-2 rounded-lg"
+                  >
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s.
+                  </p>
+                </div>
+                <div class="px-1">
+                  <img
+                    class="mx-auto pb-4"
+                    src="~/assets/img/react.svg"
+                    loading="lazy"
+                    width="80"
+                    alt="React"
+                  />
+                  <p
+                    class="px-2 py-2 bg-gray-100 dark:bg-gray-400 dark:text-gray-700 p-2 rounded-lg"
+                  >
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s.
+                  </p>
+                </div>
+              </siema>
             </div>
-          </div>
+          </no-ssr>
         </div>
-        </div>
+      </div>
       <!-- <div class="flex flex-wrap">
         <div class="w-full lg:w-1/2 mt-4 md:mt">
           <div
@@ -216,25 +291,47 @@
 </template>
 
 <script>
-//import TButton from "~/components/TButton";
+import siema from "~/plugins/vue2-siema.js";
 
 export default {
-  components: {
-    //TButton,
+  // components: {
+  //   siema
+  // },
+  data() {
+    return {
+      options: {
+        duration: 300,
+        easing: "ease-out",
+        perPage: {
+          768: 2,
+          1024: 3
+        },
+        startIndex: 0,
+        draggable: true,
+        multipleDrag: true,
+        threshold: 20,
+        loop: true,
+        rtl: false
+      }
+    };
   },
   methods: {
-    scrollToNextSection: function (index) {
+    scrollToNextSection: function(index) {
       document.querySelectorAll("section")[index].scrollIntoView({
         block: "start",
         inline: "nearest",
-        behavior: "smooth",
+        behavior: "smooth"
       });
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="postcss" scoped>
+.siema {
+  margin: 1rem 0;
+}
+
 .badge {
   @apply inline-block bg-gray-200 dark:bg-gray-700  rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-200;
   &:hover {

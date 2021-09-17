@@ -13,7 +13,8 @@
     "@nuxtjs/i18n": "^7.0.1",
     "core-js": "^3.12.1",
     "nuxt": "^2.15.5",
-    "tailwindcss-dark-mode": "^1.1.7"
+    "tailwindcss-dark-mode": "^1.1.7",
+    "vue2-siema": "^0.2.2"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^4.1.1",
