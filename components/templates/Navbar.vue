@@ -117,7 +117,7 @@
                 h-8
                 duration-300
               "
-              :to="{ path: ($i18n.locale === 'en') ? '/en' : '/', 
+              :to="{ path: ($i18n.locale === 'cs') ? '/' : '/'+$i18n.locale, 
               hash: $t(item.path)
               }"
               >{{(item.path === "services") ? $t('Services') : $t(item.path) }}</NuxtLink
