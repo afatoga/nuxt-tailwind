@@ -155,7 +155,7 @@
         </div>
       </div>
     </section>
-    <section :id="$t('webpages')" class="mt-12 lg:mt-32 xl:mt-48">
+    <section :id="$t('portfolio')" class="mt-12 lg:mt-32 xl:mt-48">
       <div class="flex-row md:flex items-center">
         <div class="w-full pb-8">
           <h2 class="py-4 text-3xl font-medium text-vladam-blue text-left">
@@ -243,6 +243,10 @@
                     typesetting industry. Lorem Ipsum has been the industry's
                     standard dummy text ever since the 1500s.
                   </p>
+                  <vue-picture-swipe :options="{shareEl: false}" :items="[
+    {src: '~/assets/img/shishaexpress.png',w: 600,h: 400, title: 'Will be used for caption'},
+    {src: '~/assets/img/lifesupport.png',w: 1200,h: 900}
+  ]"></vue-picture-swipe>
                 </div>
               </siema>
             </div>
@@ -292,11 +296,12 @@
 
 <script>
 import siema from "~/plugins/vue2-siema.js";
+import VuePictureSwipe from 'vue-picture-swipe';
 
 export default {
-  // components: {
-  //   siema
-  // },
+  components: {
+    'vue-picture-swipe': VuePictureSwipe
+  },
   data() {
     return {
       options: {

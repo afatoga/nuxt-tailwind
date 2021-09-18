@@ -31,7 +31,8 @@ export default {
     {
       src: '~/plugins/vue2-siema.js',
       ssr: false
-    }
+    },
+    //"~plugins/vue-picture-swipe.js",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
