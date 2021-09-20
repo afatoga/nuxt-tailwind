@@ -243,14 +243,18 @@
                     typesetting industry. Lorem Ipsum has been the industry's
                     standard dummy text ever since the 1500s.
                   </p>
-                  <vue-picture-swipe :options="{shareEl: false}" :items="[
-    {src: '~/assets/img/shishaexpress.png',w: 600,h: 400, title: 'Will be used for caption'},
-    {src: '~/assets/img/lifesupport.png',w: 1200,h: 900}
-  ]"></vue-picture-swipe>
+                  
                 </div>
               </siema>
             </div>
+            
           </no-ssr>
+          <div class="mt-2">
+          <vue-picture-swipe :options="{shareEl: false}" :items="[
+    {src: 'https://via.placeholder.com/300.png/09f/fff',thumbnail: 'https://via.placeholder.com/300.png/09f/fff',w: 600,h: 400, title: 'Will be used for caption'},
+    {src: 'https://via.placeholder.com/300.png/09f/fff',w: 1200,h: 900}
+  ]"></vue-picture-swipe>
+        </div>
         </div>
       </div>
       <!-- <div class="flex flex-wrap">
@@ -295,12 +299,12 @@
 </template>
 
 <script>
-import siema from "~/plugins/vue2-siema.js";
-import VuePictureSwipe from 'vue-picture-swipe';
+//import siema from "~/plugins/vue2-siema.js";
+//import VuePictureSwipe from 'vue-picture-swipe';
 
 export default {
   components: {
-    'vue-picture-swipe': VuePictureSwipe
+  //'vue-picture-swipe': VuePictureSwipe
   },
   data() {
     return {
